@@ -1,0 +1,84 @@
+{
+	"listeners":       [
+		{
+			"serviceName": "http8080",
+			"description": "Port 8080 using insecure HTTP protocol for REST and Web Apps on all TCP/IP addresses bound to this computer",
+			"port":        8080,
+			"protocol":    "http",
+			"enabled":     false
+		},
+		{
+			"serviceName": "https8443",
+			"description": "Port 8443 using TLS-secured HTTPS protocol for REST and Web Apps on all TCP/IP addresses bound to this computer",
+			"port":        8443,
+			"protocol":    "https",
+			"enabled":     true,
+			"tls":         {
+				"certificateFilename": "./web/fccert.pem"
+			}
+		}
+	],
+
+	"applicationRoot": "./web/apps/",
+
+	"applications":    [
+		{
+			"serviceName":    "Replication Manager",
+			"uriPath":        "ReplicationManager",
+			"serviceLibrary": "ctReplicationManager.dll",
+			"enabled":        true
+		},
+		{
+			"serviceName":    "FairCom DB",
+			"uriPath":        "json_nav",
+			"serviceLibrary": "json_nav.dll",
+			"enabled":        true
+		},
+		{
+			"serviceName":    "Ace Monitor",
+			"uriPath":        "AceMonitor",
+			"serviceLibrary": "ctmonitor.dll",
+			"enabled":        true
+		},
+		{
+			"serviceName":    "Data Explorer",
+			"uriPath":        "SQLExplorer",
+			"serviceLibrary": "ctsqlexplorer.dll",
+			"enabled":        true
+		},
+		{
+			"serviceName":    "ISAM Explorer",
+			"uriPath":        "ISAMExplorer",
+			"serviceLibrary": "ctisamexplorer.dll",
+			"enabled":        true
+		}
+	],
+
+	"apiRoot":         "./api",
+
+	"apis":            [
+		{
+			"serviceName": "db",
+			"enabled":     true
+		}
+	],
+
+
+	"otherServices":   [
+		{
+			"serviceName":    "mqNotification",
+			"serviceLibrary": "./mqclient/fcmqclient.dll",
+			"enabled":        true
+		},
+		{
+			"serviceName":    "ctagent",
+			"serviceLibrary": "./agent/ctagent.dll",
+			"enabled":        true
+		},
+		{
+			"serviceName":    "aggregation",
+			"serviceLibrary": "./aggregation/cttimestamp.dll",
+			"enabled":        false
+		}
+	]
+}
