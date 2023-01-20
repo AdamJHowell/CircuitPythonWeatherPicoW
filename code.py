@@ -21,6 +21,15 @@ except ImportError:
   print( "WiFi secrets are kept in secrets.py, please add them there!" )
   raise
 
+"""
+pip install adafruit-circuitpython-motor
+pip install adafruit-circuitpython-bmp280
+pip install adafruit-circuitpython-HTU21D
+pip install adafruit-circuitpython-minimqtt
+pip install adafruit-circuitpython-tmp117
+pip install adafruit-circuitpython-sht31d
+"""
+
 print( f"Connecting to {secrets['ssid']}" )
 wifi.radio.connect( secrets['ssid'], secrets['password'] )
 print( f"Connected to {secrets['ssid']}" )
@@ -162,23 +171,23 @@ def servo_setup():
 
 
 # Servo test
-def servo_normal_test( servo ):
+def servo_normal_test( servo1 ):
   sleep_time = 10
   angle = 0
   print( f"servo test: {angle}" )
-  servo.angle = angle
+  servo1.angle = angle
   time.sleep( sleep_time )
   angle = 180
   print( f"servo test: {angle}" )
-  servo.angle = angle
+  servo1.angle = angle
   time.sleep( sleep_time )
   angle = 0
   print( f"servo test: {angle}" )
-  servo.angle = angle
+  servo1.angle = angle
   time.sleep( sleep_time )
   angle = 180
   print( f"servo test: {angle}" )
-  servo.angle = angle
+  servo1.angle = angle
   time.sleep( sleep_time )
 
 
